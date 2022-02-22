@@ -1,4 +1,4 @@
-export interface User {
+export interface IUser {
   username: string,
   classe: string,
   level: number,
@@ -6,6 +6,6 @@ export interface User {
 
 }
 
-export interface IdUser extends User {
+export interface User extends IUser {
   id: number,
 }
