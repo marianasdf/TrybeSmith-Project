@@ -12,7 +12,7 @@ export const usernameValidate = (req : Request, res: Response, next: NextFunctio
     return res.status(400).json({ error: 'Username is required' });
   }
 
-  if (username !== 'string') {
+  if (typeof username !== 'string') {
     return res.status(422).json({ error: 'Username must be a string' });
   }
 
@@ -34,7 +34,7 @@ export const classeValidate = (req : Request, res: Response, next: NextFunction)
     return res.status(400).json({ error: 'Classe is required' });
   }
 
-  if (classe !== 'string') {
+  if (typeof classe !== 'string') {
     return res.status(422).json({ error: 'Classe must be a string' });
   }
 
@@ -52,7 +52,7 @@ export const levelValidate = (req : Request, res: Response, next: NextFunction) 
 
   const CHARACTERS = 1;
 
-  if (!level) {
+  if (!level && level !== 0) {
     return res.status(400).json({ error: 'Level is required' });
   }
 
@@ -72,13 +72,13 @@ export const passwordValidate = (req : Request, res: Response, next: NextFunctio
 
   const { password } = user;
 
-  const CHARACTERS = 7;
+  const CHARACTERS = 8;
 
   if (!password) {
     return res.status(400).json({ error: 'Password is required' });
   }
 
-  if (password !== 'string') {
+  if (typeof password !== 'string') {
     return res.status(422).json({ error: 'Password must be a string' });
   }
 
