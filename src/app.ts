@@ -9,7 +9,7 @@ import {
 } from './middlewares/userValidate';
 
 import { loginValidate } from './middlewares/loginValidate';
-import { createProductController } from './controllers/productController';
+import { createProductController, getProductsController } from './controllers/productController';
 import { nameValidate, amountValidate } from './middlewares/productValidate';
 import { tokenValidate } from './middlewares/tokenValidate';
 
@@ -38,6 +38,12 @@ app.post(
   amountValidate,
   tokenValidate,
   createProductController,
+);
+
+app.get(
+  '/products',
+  tokenValidate,
+  getProductsController,
 );
 
 export default app;

@@ -13,4 +13,12 @@ export const createProduct = async (product: IUproduct) => {
   return result.insertId;
 }; 
 
-export default createProduct;
+export const getProducts = async () => {
+  const [result] = await connection.execute('SELECT * FROM Trybesmith.Products');
+  return result;
+};
+
+export default {
+  createProduct,
+  getProducts,
+};
