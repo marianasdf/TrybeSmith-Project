@@ -7,7 +7,7 @@ type Payload = {
 };
 
 export const generateToken = (payload: Payload): string => {
-  const secret = process.env.JWT_SECRET || 'mysecret';
+  const secret = 'mysecret';
 
   let token = '';
 

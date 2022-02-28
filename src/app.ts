@@ -9,6 +9,9 @@ import {
 } from './middlewares/userValidate';
 
 import { loginValidate } from './middlewares/loginValidate';
+import { createProductController } from './controllers/productController';
+import { nameValidate, amountValidate } from './middlewares/productValidate';
+import { tokenValidate } from './middlewares/tokenValidate';
 
 const app = express();
 
@@ -27,6 +30,14 @@ app.post(
   '/login',
   loginValidate,
   getUserByLoginController,
+);
+
+app.post(
+  '/products',
+  nameValidate,
+  amountValidate,
+  tokenValidate,
+  createProductController,
 );
 
 export default app;
